@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="_df_book" id="test_book" height="98vh" backgroundcolor="teal" source="./test.pdf"></div>
+                <div class="_df_book" id="test_book" height="98vh" backgroundcolor="teal" source="./catalog.pdf"></div>
             </div>
         </div>
     </div>
@@ -22,34 +22,7 @@
     <script>
         var option_test_book = { annotationClass: "pdf-link-class", openPage: 2 };
     </script>
-    <script>
-        jQuery('body').on("click", ".pdf-link-class a", function (e) {
-
-            var link = jQuery(this);
-            //make actions based on the href
-            var href = link.attr("href");
-            console.log(href);
-            //Internal Link href is blank and has "internalLink" class added.
-            //but cannot be intercepted if the link links to different page and flipbook flips. Works if the links were created on load. not after flip.
-
-            console.log("Is internal Link? " + link.hasClass("internalLink"));
-
-            if (href.startsWith("http") || href.indexOf("www") > -1) {
-                var check = confirm("You clicked on a link for: " + href + "\r Go to the link?");
-                if (check === false) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-
-                //add your logic here with custom urls that begin with http:
-                //example: http://test/popup2
-                //if(href.indexOf("popup2")>-1){};
-            }
-            else {
-                alert("You clicked on an internal link. Going there!");
-            }
-        });
-    </script>
+    
 </body>
 
 </html>
